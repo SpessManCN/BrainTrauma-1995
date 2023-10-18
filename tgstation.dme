@@ -5947,6 +5947,7 @@
 #include "interface\fonts\spess_font.dm"
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
+#include "modular_BrainTrauma1995\MothpeopleUnion\clothing.dm"
 #include "modular_skyrat\master_files\code\_globalvars\configuration.dm"
 #include "modular_skyrat\master_files\code\_globalvars\religion.dm"
 #include "modular_skyrat\master_files\code\_globalvars\lists\ambience.dm"
