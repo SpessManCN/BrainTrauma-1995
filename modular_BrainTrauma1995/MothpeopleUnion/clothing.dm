@@ -51,3 +51,11 @@
 	if(loc == user)
 		// Update action button icon for adjusted mask, if someone is holding it.
 		user.update_mob_action_buttons()
+
+/datum/loadout_item/head/ran
+	name = "御神帽"
+	item_path = /obj/item/clothing/head/ran
+
+/datum/loadout_item/suit/ran
+	name = "御神装"
+	item_path = /obj/item/clothing/suit/ran
