@@ -360,7 +360,7 @@
 /*
  * A status effect used for preventing caltrop message spam
  *
- * While a mob has this status effect, they won't recieve any messages about
+ * While a mob has this status effect, they won't receive any messages about
  * stepping on caltrops. But they will be stunned and damaged regardless.
  *
  * The status effect itself has no effect, other than to disappear after
@@ -526,7 +526,7 @@
 				monkey_tail.Insert(human_mob, drop_if_replaced = FALSE)
 			var/datum/species/human_species = human_mob.dna?.species
 			if(human_species)
-				human_species.randomize_features(human_mob)
+				human_species.randomize_active_features(human_mob)
 				human_species.randomize_active_underwear(human_mob)
 
 			owner.remove_status_effect(/datum/status_effect/eigenstasium)
