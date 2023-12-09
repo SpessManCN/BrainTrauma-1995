@@ -1,3 +1,4 @@
+// THIS IS A SKYRAT UI FILE
 import { useBackend } from '../backend';
 import { Button, Collapsible, Icon, NoticeBox, Section, Stack, Box } from '../components';
 import { Window } from '../layouts';
@@ -19,8 +20,8 @@ class LewdSlot {
   name;
 }
 
-export const InteractionMenu = (props, context) => {
-  const { act, data } = useBackend<Interaction>(context);
+export const InteractionMenu = (props) => {
+  const { act, data } = useBackend<Interaction>();
   const {
     categories = [],
     interactions,

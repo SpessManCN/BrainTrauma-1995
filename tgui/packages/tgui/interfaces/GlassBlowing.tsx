@@ -1,3 +1,4 @@
+// THIS IS A SKYRAT UI FILE
 import { Box, Button, Flex, Stack, Section, ProgressBar, AnimatedNumber, Table } from '../components';
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
@@ -31,8 +32,8 @@ type RemainingSteps = {
   jacks: number;
 };
 
-export const GlassBlowing = (props, context) => {
-  const { act, data } = useBackend<GlassData>(context);
+export const GlassBlowing = (props) => {
+  const { act, data } = useBackend<GlassData>();
   const { glass, inUse } = data;
 
   return (
