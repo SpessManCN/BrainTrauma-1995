@@ -1,10 +1,12 @@
-import { useBackend, useLocalState } from '../backend';
-import { capitalizeAll } from 'common/string';
 import { BooleanLike, classes } from 'common/react';
+import { capitalizeAll } from 'common/string';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import { Box, Button, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
-import { Section, Tabs, Button, Stack, Box } from '../components';
+import { MatterItem, SiloItem } from './RapidConstructionDevice';
 import { ColorItem, LayerSelect } from './RapidPipeDispenser';
-import { SiloItem, MatterItem } from './RapidConstructionDevice';
 
 type Data = {
   silo_upgraded: BooleanLike;
@@ -29,19 +31,16 @@ type Recipe = {
 const PlumbingTypeSection = (props) => {
   const { act, data } = useBackend<Data>();
   const { categories = [], selected_category, selected_recipe } = data;
-  const [categoryName, setCategoryName] = useLocalState(
-    'categoryName',
-    selected_category,
-  );
+  const [categoryName, setCategoryName] = useState(selected_category);
   const shownCategory =
     categories.find((category) => category.cat_name === categoryName) ||
     categories[0];
+
   return (
     <Section fill scrollable>
       <Tabs>
         {categories.map((category) => (
           <Tabs.Tab
-            fluid
             key={category.cat_name}
             selected={category.cat_name === shownCategory.cat_name}
             onClick={() => setCategoryName(category.cat_name)}
@@ -54,7 +53,6 @@ const PlumbingTypeSection = (props) => {
         <Button
           key={index}
           fluid
-          ellipsis
           color="transparent"
           selected={recipe.name === selected_recipe}
           onClick={() =>
@@ -67,8 +65,8 @@ const PlumbingTypeSection = (props) => {
           <Box
             inline
             verticalAlign="middle"
-            height="40px"
             mr="20px"
+            mb="10px"
             className={classes(['plumbing-tgui32x32', recipe.icon])}
             style={{
               transform: 'scale(1.3) translate(9.5%, 11.2%)',

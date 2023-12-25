@@ -1,16 +1,18 @@
 // THIS IS A SKYRAT UI FILE
-import { useBackend, useLocalState } from '../backend';
-import {
-  LabeledList,
-  Stack,
-  Button,
-  Section,
-  ProgressBar,
-  Box,
-  Tabs,
-  Divider,
-} from '../components';
 import { BooleanLike } from 'common/react';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Divider,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
 import { Window } from '../layouts';
 import { Rules } from './AntagInfoRules';
 
@@ -51,7 +53,7 @@ type Info = {
 };
 
 export const AntagInfoAssaultops = (props) => {
-  const [tab, setTab] = useLocalState('tab', 1);
+  const [tab, setTab] = useState(1);
   const { data } = useBackend<Info>();
   const { required_keys, uploaded_keys, objectives } = data;
   return (
@@ -108,7 +110,7 @@ export const AntagInfoAssaultops = (props) => {
             </Section>
           </Stack.Item>
           <Stack.Item>
-            <Stack vertical grow mb={1}>
+            <Stack vertical mb={1}>
               <Stack.Item>
                 <Tabs fill>
                   <Tabs.Tab
@@ -144,7 +146,7 @@ const TargetPrintout = (props) => {
   const { act, data } = useBackend<Info>();
   const { available_targets, extracted_targets } = data;
   return (
-    <Section grow>
+    <Section>
       <Box textColor="red" fontSize="20px" mb={1}>
         Target List
       </Box>
@@ -199,7 +201,7 @@ const KeyPrintout = (props) => {
   const { act, data } = useBackend<Info>();
   const { goldeneye_keys } = data;
   return (
-    <Section grow>
+    <Section>
       <Box textColor="red" fontSize="20px">
         GoldenEye Keycards
       </Box>
