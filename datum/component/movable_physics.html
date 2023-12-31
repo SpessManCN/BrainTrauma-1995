@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;component&#x2F;movable_physics - &#x2F;tg&#x2F; Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">&#x2F;tg&#x2F; Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/component/movable_physics.html#var">Var Details</a> - <a href="datum/component/movable_physics.html#proc">Proc Details</a></header>
+<main>
+<h1>movable_physics <aside>/<a href="datum.html">datum</a>/<a href="datum/component.html">component</a>/<a href="datum/component/movable_physics.html">movable_physics</a></aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L5">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 5"/></a></h1>
+
+<p>Stores information related to the movable's physics and keeping track of relevant signals to trigger movement</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/angle_of_movement">angle_of_movement</a></th><td>The angle of the path the object takes on the x/y plane</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/bounce_sound">bounce_sound</a></th><td>The sound effect to play when bouncing off of something</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/cached_animate_movement">cached_animate_movement</a></th><td>The cached animate_movement of the parent; any kind of gliding when doing Move() makes the physics look derpy, so we'll just make Move() be instant</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/horizontal_friction">horizontal_friction</a></th><td>The horizontal_velocity is reduced by this every process(), this doesn't take into account the object being in the air vs gravity pushing it against the ground</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/horizontal_velocity">horizontal_velocity</a></th><td>Modifies the pixel_x/pixel_y of an object every process()</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/physic_flags">physic_flags</a></th><td>Flags for turning on certain physic properties, see the top of the file for more information on flags</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/vertical_velocity">vertical_velocity</a></th><td>Modifies the pixel_z of an object every process(), movables aren't Move()'d into another turf if pixel_z exceeds 16, so try not to supply a super high vertical value if you don't want the movable to clip through multiple turfs</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/z_floor">z_floor</a></th><td>The pixel_z that the object will no longer be influenced by gravity for a 32x32 turf, keep this value between -16 to 0 so it's visuals matches up with it physically being in the turf</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#var/z_gravity">z_gravity</a></th><td>The vertical_velocity is reduced by this every process()</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#proc/start_movement">start_movement</a></th><td>Let's get moving</td></tr>
+            <tr><th><a href="datum/component/movable_physics.html#proc/stop_movement">stop_movement</a></th><td>Alright it's time to stop</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/angle_of_movement"><aside class="declaration">var </aside>angle_of_movement
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L17">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 17"/></a></h3>
+        <p>The angle of the path the object takes on the x/y plane</p><h3 id="var/bounce_sound"><aside class="declaration">var </aside>bounce_sound
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L25">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 25"/></a></h3>
+        <p>The sound effect to play when bouncing off of something</p><h3 id="var/cached_animate_movement"><aside class="declaration">var </aside>cached_animate_movement
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L21">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 21"/></a></h3>
+        <p>The cached animate_movement of the parent; any kind of gliding when doing Move() makes the physics look derpy, so we'll just make Move() be instant</p><h3 id="var/horizontal_friction"><aside class="declaration">var </aside>horizontal_friction
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L11">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 11"/></a></h3>
+        <p>The horizontal_velocity is reduced by this every process(), this doesn't take into account the object being in the air vs gravity pushing it against the ground</p><h3 id="var/horizontal_velocity"><aside class="declaration">var </aside>horizontal_velocity
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L7">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 7"/></a></h3>
+        <p>Modifies the pixel_x/pixel_y of an object every process()</p><h3 id="var/physic_flags"><aside class="declaration">var </aside>physic_flags
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L19">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 19"/></a></h3>
+        <p>Flags for turning on certain physic properties, see the top of the file for more information on flags</p><h3 id="var/vertical_velocity"><aside class="declaration">var </aside>vertical_velocity
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L9">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 9"/></a></h3>
+        <p>Modifies the pixel_z of an object every process(), movables aren't Move()'d into another turf if pixel_z exceeds 16, so try not to supply a super high vertical value if you don't want the movable to clip through multiple turfs</p><h3 id="var/z_floor"><aside class="declaration">var </aside>z_floor
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L15">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 15"/></a></h3>
+        <p>The pixel_z that the object will no longer be influenced by gravity for a 32x32 turf, keep this value between -16 to 0 so it's visuals matches up with it physically being in the turf</p><h3 id="var/z_gravity"><aside class="declaration">var </aside>z_gravity
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L13">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 13"/></a></h3>
+        <p>The vertical_velocity is reduced by this every process()</p><h2 id="proc">Proc Details</h2><h3 id="proc/start_movement"><aside class="declaration">proc </aside>start_movement<aside>() 
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L42">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 42"/></a></aside>
+        </h3>
+        <p>Let's get moving</p><h3 id="proc/stop_movement"><aside class="declaration">proc </aside>stop_movement<aside>() 
+        
+    
+            <a href="https://github.com/SpessManCN/BrainTrauma-1995/blob/8b514593079ef4167cb26a14a85754871df90571/modular_BrainTrauma1995/code/datums/components/movable_physics.dm#L50">
+        <img src="git.png" width="16" height="16" title="modular_BrainTrauma1995&#x2F;code&#x2F;datums&#x2F;components&#x2F;movable_physics.dm 50"/></a></aside>
+        </h3>
+        <p>Alright it's time to stop</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/SpessManCN/BrainTrauma-1995/tree/8b514593079ef4167cb26a14a85754871df90571">8b51459</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>
